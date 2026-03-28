@@ -1,0 +1,17 @@
+<h2>Dgpack tồn kho</h2>
+<button onclick="load()">Load</button>
+<table id="tbl"></table>
+
+<script>
+async function load(){
+ let res = await fetch('/api/data');
+ let data = await res.json();
+
+ let html = "";
+ data.forEach(r=>{
+   html += `<tr><td>${r.MaCuon}</td></tr>`;
+ });
+
+ document.getElementById("tbl").innerHTML = html;
+}
+</script>
